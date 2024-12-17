@@ -1,0 +1,20 @@
+def calculate_variance(data):
+    """
+    Обчислює дисперсію для заданого набору даних.
+
+    :param data: Список чисел (набір даних)
+    :return: Дисперсія набору даних
+    """
+    if len(data) < 2:
+        raise ValueError("Набір даних повинен містити принаймні два значення.")
+    
+    mean = sum(data) / len(data)  # Обчислення середнього значення
+    squared_differences = [(x - mean) ** 2 for x in data]  # Квадрати відхилень
+    variance = sum(squared_differences) / len(data)  # Середнє квадратів відхилень
+
+    return variance
+
+# Приклад використання
+data = [2, 4, 6, 8, 10]
+variance = calculate_variance(data)
+print(f"Дисперсія набору даних: {variance}")
